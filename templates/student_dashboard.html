@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Student Dashboard</h2>
+    <p>Welcome, {{ user.username }}!</p>
+    <form method="POST" action="{{ url_for('student.select_room') }}">
+        <label for="room">Select Room:</label>
+        <input type="text" id="room" name="room" required>
+        <button type="submit">Lock Room</button>
+    </form>
+    <form method="POST" action="{{ url_for('student.feedback') }}">
+        <label for="feedback">Feedback:</label>
+        <textarea id="feedback" name="feedback" required></textarea

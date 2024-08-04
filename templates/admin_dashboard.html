@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Admin Dashboard</h2>
+    <h3>Student Room Selections and Feedback</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Room</th>
+                <th>Feedback</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.username }}</td>
+                <td>{{ student.email }}</td>
+                <td>{{ student.room }}</td>
+                <td>{{ student.feedback }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <form method="POST" action="{{ url_for('admin.admin_logout') }}">
+        <button type="submit">Logout</button>
+    </form>
+{% endblock %}
